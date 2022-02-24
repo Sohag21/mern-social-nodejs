@@ -5,8 +5,9 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
-const usersRoute = require("./routes/users")
-const authRoute = require("./routes/auth")
+const usersRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
+const postsRoute = require("./routes/posts");
 
 dotenv.config()
 mongoose.connect(process.env.MONGO_URL)
@@ -24,6 +25,7 @@ app.get('/', (req, res)=>{
 
 app.use("/api/users", usersRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/posts", postsRoute);
 
 app.listen(8800, ()=>{
     console.log("Backend server is running on port:8800!")
