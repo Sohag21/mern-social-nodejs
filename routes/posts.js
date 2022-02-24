@@ -84,5 +84,4 @@ router.get("/timeline/all", async(req, res)=>{
         return res.status(500).json(error);
     }
 });
-
 module.exports = router;

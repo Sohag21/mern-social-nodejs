@@ -2,7 +2,6 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
-
 router.get("/", (req, res)=>{
     res.send("Response from users route!")
 });
@@ -52,7 +51,7 @@ router.get("/:id", async(req, res)=>{
     } catch (error) {
         res.status(500).json(error);
     }
-})
+});
 
 // follow a user
 router.put("/:id/follow", async(req, res)=>{
@@ -73,7 +72,7 @@ router.put("/:id/follow", async(req, res)=>{
     } else {
         return res.status(403).json("You cant follow yourself!");
     }
-})
+});
 
 // unfollow a user
 router.put("/:id/unfollow", async(req, res)=>{
@@ -94,6 +93,5 @@ router.put("/:id/unfollow", async(req, res)=>{
     } else {
         return res.status(403).json("You cant unfollow yourself!");
     }
-})
-
+});
 module.exports = router;
